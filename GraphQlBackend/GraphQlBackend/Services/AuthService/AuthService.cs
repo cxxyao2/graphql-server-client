@@ -1,100 +1,102 @@
-using System.Text;
 using GraphQlBackend.Data;
-using GraphQlBackend.Schema;
-using GraphQlBackend.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using GraphQlBackend.DTOs;
+using GraphQlBackend.Entities;
+using GraphQlBackend.Enums;
+using GraphQlBackend.Helpers;
+using GraphQlBackend.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
-var AllowSpecificOrigins = "_allowSpecificOrigins";
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddHttpContextAccessor();
-
-
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-               .AddJwtBearer(options =>
-               {
-                   options.TokenValidationParameters = new TokenValidationParameters
-                   {
-                       ValidateIssuerSigningKey = true,
-                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.
-                           GetBytes(builder.Configuration["AppSettings:Secrets_Token"] ?? "")),
-                       ValidateIssuer = false,
-                       ValidateAudience = false,
-                   };
-               });
-
-
-
-// Add services to the container.
-builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddScoped<ICustomerService, CustomerService>();
-builder.Services.AddScoped<IOrderService, OrderService>();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IAuthService, AuthService>();
-
-
-// Cors
-// Read the CORS origins from environment variables
-var originsString = builder.Configuration["AppSettings:Cors_AllowedOrigins"];
-var allowedOrigins = originsString?.Split(',');
-
-builder.Services.AddCors(options =>
+namespace GraphQlBackend.Services
 {
-    options.AddPolicy(name: AllowSpecificOrigins,
-        policy =>
-        {
-            policy.WithOrigins(allowedOrigins)
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        }
-    );
-});
 
-// graphql
-builder.Services
-    .AddGraphQLServer()
-    .AddQueryType<Query>()
-    .AddMutationType<Mutation>()
-    .AddFiltering()
-    .AddSorting()
-    .AddProjections()
-    .AddAuthorization();
-
-
-var app = builder.Build();
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
+    public class AuthService : IAuthService
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "GraphQL Server v1");
-        c.RoutePrefix = string.Empty;
-    });
+        private readonly DataContext _context;
+        private readonly IConfiguration _config;
+        public AuthService(DataContext context, IConfiguration config)
+        {
+            _context = context;
+            _config = config;
+        }
+
+        public async Task<TokenPair> RefreshToken(string oldRefreshToken)
+        {
+            User? user = await _context.Users.FirstOrDefaultAsync(x => x.RefreshToken == oldRefreshToken);
+            if (user == null)
+            {
+                throw new Exception("Invalid Refresh Token.");
+            }
+            else if (user.TokenExpires < DateTime.Now)
+            {
+                throw new Exception("Token expired.");
+            }
+
+            TokenPair tokenPair = await GenerateTokens(user);
+            return tokenPair;
+        }
+
+        public async Task<TokenPair> Login(string username, string password)
+        {
+            User? user = await _context.Users.FirstOrDefaultAsync(x => x.UserName.ToLower() == username.ToLower());
+            if (user == null || !PasswordHashingHelper.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+            {
+                throw new Exception("Username or password is incorrect");
+            }
+            TokenPair TokenPair = await GenerateTokens(user);
+            return TokenPair;
+        }
+
+
+        public async Task Register(UserCreateDTO model)
+        {
+            bool emailExists = await _context.Users.AnyAsync(x => x.Email == model.Email);
+            if (emailExists)
+            {
+                throw new Exception("User with the email '" + model.Email + "' already exists");
+
+            }
+
+            User? user = new User();
+            PasswordHashingHelper.CreatePasswordHash(model.Password, out byte[] passwordHash, out byte[] passwordSalt);
+
+            user.UserName = model.UserName;
+            user.Birthday = model.Birthday;
+            user.Role = model.Role ?? Role.User;
+
+            user.Email = model.Email;
+            user.CreatedAt = DateTime.UtcNow;
+            user.UpdatedAt = DateTime.UtcNow;
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
+            _context.Users.Add(user);
+
+            await _context.SaveChangesAsync();
+
+        }
+
+        private async Task<TokenPair> GenerateTokens(User user)
+        {
+            string? tokenSecret = _config["AppSettings:Secrets_Token"];
+            if (string.IsNullOrEmpty(tokenSecret))
+            {
+                throw new Exception("Token secret is not set");
+            }
+            string token = TokenCreatingHelper.CreateToken(user, tokenSecret);
+            RefreshToken newRefreshToken = TokenCreatingHelper.GenerateRefreshToken();
+            user.RefreshToken = newRefreshToken.Token;
+            user.TokenCreated = newRefreshToken.Created;
+            user.TokenExpires = newRefreshToken.Expires;
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+
+            TokenPair tokenPair = new()
+            { AccessToken = token, RefreshToken = newRefreshToken };
+
+            return tokenPair;
+
+        }
+
+
+    }
+
 }
-
-app.UseCors(AllowSpecificOrigins);
-app.UseHttpsRedirection();
-
-
-
-app.UseRouting();
-
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.MapGraphQL();
-
-
-app.Run();
