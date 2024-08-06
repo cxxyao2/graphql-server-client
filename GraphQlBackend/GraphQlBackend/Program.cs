@@ -44,7 +44,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 
 // Cors
 // Read the CORS origins from environment variables
-var originsString = builder.Configuration["AppSettings:Cors_AllowedOrigins"];
+var originsString = builder.Configuration.GetSection("AppSettings").GetValue<string>("Cors_AllowedOrigins");
 var allowedOrigins = originsString?.Split(',');
 
 builder.Services.AddCors(options =>
