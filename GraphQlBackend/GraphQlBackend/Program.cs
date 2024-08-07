@@ -24,7 +24,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                    {
                        ValidateIssuerSigningKey = true,
                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.
-                           GetBytes(builder.Configuration["AppSettings:Secrets_Token"] ?? "")),
+                           GetBytes(builder.Configuration["Secrets_Token"] ?? "")),
                        ValidateIssuer = false,
                        ValidateAudience = false,
                    };
@@ -44,7 +44,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 
 // Cors
 // Read the CORS origins from environment variables
-var originsString = builder.Configuration.GetSection("AppSettings").GetValue<string>("Cors_AllowedOrigins");
+var originsString = builder.Configuration.GetValue<string>("WEBSITE_CORS_ALLOWED_ORIGINS");
 var allowedOrigins = originsString?.Split(',');
 
 builder.Services.AddCors(options =>
