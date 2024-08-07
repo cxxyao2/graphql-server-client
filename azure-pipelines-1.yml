@@ -29,8 +29,8 @@ stages:
 
     - task: CopyFiles@2
       inputs:
-        SourceFolder: '$(Build.SourcesDirectory)'
-        Contents: '**\dist\**'
+        SourceFolder: '$(Build.SourcesDirectory)/Frontend/ReactDemo/dist'
+        Contents: '**'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
         displayName: 'Copy Files to ArtifactStagingDirectory'
 
