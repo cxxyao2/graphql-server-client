@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 import api from '../../app/api'
