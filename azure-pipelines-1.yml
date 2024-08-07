@@ -20,7 +20,7 @@ stages:
       displayName: 'Install Node.js'
 
     - script: |
-        cd frontend
+        cd Frontend
         cd ReactDemo
         npm install
         npm run build
