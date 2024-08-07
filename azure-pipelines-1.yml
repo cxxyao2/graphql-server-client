@@ -1,5 +1,10 @@
 trigger:
-- main  # or your default branch
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - Frontend/**
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -31,5 +36,5 @@ stages:
     - task: PublishBuildArtifacts@1
       inputs:
         pathToPublish: '$(Build.ArtifactStagingDirectory)'
-        artifactName: 'ReactDemo'
+        artifactName: 'react-graphql'
       displayName: 'Publish Artifact'
