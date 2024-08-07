@@ -6,7 +6,6 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
-		"postbuild": "move dist ../../Backend/API/wwwroot",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview"
 	},
@@ -15,8 +14,8 @@
 		"@emotion/react": "11.10.4",
 		"@emotion/styled": "11.10.4",
 		"@material-ui/icons": "^4.11.3",
-		"@mui/icons-material": "^5.16.5",
-		"@mui/material": "^5.16.5",
+		"@mui/icons-material": "^5.16.6",
+		"@mui/material": "^5.16.6",
 		"@mui/x-date-pickers": "^7.11.1",
 		"ag-grid-community": "28.2.0",
 		"ag-grid-react": "28.2.0",
