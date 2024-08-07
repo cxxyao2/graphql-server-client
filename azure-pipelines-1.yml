@@ -23,7 +23,7 @@ stages:
         cd Frontend
         cd ReactDemo
         npm install
-        npm run build
+        npm run build --force
       displayName: 'Build React App'
 
     - task: CopyFiles@2
