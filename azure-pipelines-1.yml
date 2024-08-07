@@ -26,12 +26,14 @@ stages:
         npm run build --force
       displayName: 'Build React App'
 
+
     - task: CopyFiles@2
       inputs:
-        SourceFolder: './build'
-        Contents: '**'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)'
-      displayName: 'Copy build output to staging directory'
+        contents: 'build/**'
+        targetFolder: '$(Build.ArtifactStagingDirectory)'
+        displayName: 'Copy Files to ArtifactStagingDirectory'
+
+  
 
     - task: PublishBuildArtifacts@1
       inputs:
