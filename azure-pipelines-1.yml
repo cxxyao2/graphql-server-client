@@ -29,7 +29,7 @@ stages:
 
     - task: CopyFiles@2
       inputs:
-        contents: 'dist/**'
+        contents: './dist/**'
         targetFolder: '$(Build.ArtifactStagingDirectory)'
         displayName: 'Copy Files to ArtifactStagingDirectory'
 
