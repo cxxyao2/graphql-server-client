@@ -53,9 +53,7 @@ const LoginForm = () => {
 					validationSchema={FORM_VALIDATION}
 					onSubmit={handleLogin}>
 					<Form
-						placeholder={undefined}
-						onPointerEnterCapture={undefined}
-						onPointerLeaveCapture={undefined}>
+						placeholder={undefined}>
 						<Grid container spacing={2}>
 							<Grid item xs={12}>
 								<Typography variant='h6' align='center'>

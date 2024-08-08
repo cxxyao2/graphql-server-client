@@ -1,5 +1,6 @@
 using System.Text;
 using GraphQlBackend.Data;
+using GraphQlBackend.Helpers;
 using GraphQlBackend.Schema;
 using GraphQlBackend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -92,6 +93,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseMiddleware<ErrorHandlerMiddleware>();
 app.MapControllers();
 
 app.MapGraphQL();

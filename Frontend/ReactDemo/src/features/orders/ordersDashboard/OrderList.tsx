@@ -18,7 +18,8 @@ export default function OrderList({ orders }: OrderListProps) {
 	const [columnDefs] = useState([
 		{
 			field: 'id',
-			width: 50,
+			headerName: '',
+			width: 80,
 			suppressSizeToFit: true,
 			cellRenderer: function (params: any) {
 				return (
@@ -27,6 +28,10 @@ export default function OrderList({ orders }: OrderListProps) {
 					</IconButton>
 				)
 			}
+		},
+		{
+			field: 'id',
+			width: 80
 		},
 		{
 			field: 'customer',

@@ -94,7 +94,7 @@ export default function OrderPage() {
 				<Grid item xs={2}></Grid>
 				<Grid item xs={8}>
 					<OmHeader
-						header={`Order Details ${customer.firstName} ${customer.lastName}`}
+						header={`Order ${order.id} Customer ${customer.firstName} ${customer.lastName}`}
 					/>
 				</Grid>
 				<Grid item xs={2}>

@@ -102,9 +102,7 @@ export default function CustomerForm({ customer }: CustomerFormProps) {
 					validationSchema={FORM_VALIDATION}
 					onSubmit={addOrUpdateCustomerDetails}>
 					<Form
-						placeholder={undefined}
-						onPointerEnterCapture={undefined}
-						onPointerLeaveCapture={undefined}>
+						placeholder={undefined}>
 						<Grid container spacing={2}>
 							<Grid item xs={6}>
 								<OmTextField

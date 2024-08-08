@@ -1,8 +1,8 @@
 export enum Status {
-	Pending = 'Pending',
-	Draft = 'Draft',
-	Completed = 'Completed',
-	Shipped = 'Shipped'
+	PENDING = 'PENDING',
+	DRAFT = 'DRAFT',
+	COMPLETED = 'COMPLTED',
+	SHIPPED = 'SHIPPED'
 }
 
 export interface Address {

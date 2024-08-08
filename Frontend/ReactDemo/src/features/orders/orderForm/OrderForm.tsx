@@ -31,10 +31,7 @@ const FORM_VALIDATION = yup.object().shape({
 	depositAmount: yup.number().required('Deposit amount is required'),
 	otherNotes: yup.string(),
 	totalAmount: yup.number().required('Deposit amount is required'),
-	status: yup
-		.string()
-		.oneOf(Object.values(Status), 'Invalid status value')
-		.required('Status is required')
+	status: yup.string().required('Status is required')
 })
 
 export default function OrderForm({ order }: OrderFormProps) {
@@ -116,10 +113,7 @@ export default function OrderForm({ order }: OrderFormProps) {
 					initialValues={INITIAL_FORM_STATE}
 					validationSchema={FORM_VALIDATION}
 					onSubmit={addOrUpdateOrderDetails}>
-					<Form
-						placeholder={undefined}
-						onPointerEnterCapture={undefined}
-						onPointerLeaveCapture={undefined}>
+					<Form placeholder={undefined}>
 						<Grid container spacing={2}>
 							<Grid item xs={12}>
 								<DemoContainer components={['DatePicker']}>
