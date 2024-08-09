@@ -21,6 +21,7 @@ import { GraphQLWsLink } from '@apollo/client/link/subscriptions'
 import { createClient } from 'graphql-ws'
 import LoginForm from '../../features/auth/LoginForm'
 import RegisterForm from '../../features/auth/RegisterForm'
+import TestOrder from '../../features/orders/TestOrder'
 
 const httpLink = new HttpLink({
 	uri: import.meta.env.VITE_APP_API_GRAPHQL_URL
@@ -69,6 +70,7 @@ function App() {
 						<Route path='/' element={<Layout />}>
 							<Route index element={<HomePage />} />
 							<Route path='login' element={<LoginForm />} />
+							<Route path='test' element={<TestOrder />} />
 							<Route path='register' element={<RegisterForm />} />
 							<Route path='customers' element={<CustomersDashboard />} />
 							<Route path='customers/:customerId' element={<CustomerPage />} />
