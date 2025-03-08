@@ -6,8 +6,12 @@
 
 ## set up frontend
 
-- yarn
+```bash
+ yarn
+```
 
 ## set up backend
 
-- dotnet restore
+```bash
+dotnet restore
+```

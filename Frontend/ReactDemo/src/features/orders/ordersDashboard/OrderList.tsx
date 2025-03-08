@@ -14,6 +14,7 @@ interface OrderListProps {
 
 export default function OrderList({ orders }: OrderListProps) {
 	const navigate = useNavigate()
+	console.log('orders is', orders)
 
 	const [columnDefs] = useState([
 		{

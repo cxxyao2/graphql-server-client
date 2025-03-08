@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\coding-azure\\graphql_server_client\\GraphQlBackend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|c:\\coding-azure\\graphql_server_client\\graphqlbackend\\graphqlbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|solutionrelative:graphqlbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|c:\\coding-azure\\graphql_server_client\\graphqlbackend\\graphqlbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|solutionrelative:graphqlbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|c:\\coding-azure\\graphql_server_client\\graphqlbackend\\graphqlbackend\\helpers\\errorhandlermidderware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|solutionrelative:graphqlbackend\\helpers\\errorhandlermidderware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,16 +19,8 @@
       "RelativeMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|solutionrelative:graphqlbackend\\helpers\\appexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|c:\\coding-azure\\graphql_server_client\\graphqlbackend\\graphqlbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|solutionrelative:graphqlbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|c:\\coding-azure\\graphql_server_client\\graphqlbackend\\graphqlbackend\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|solutionrelative:graphqlbackend\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|c:\\coding-azure\\graphql_server_client\\graphqlbackend\\graphqlbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|solutionrelative:graphqlbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E255BE8-5EA3-4D94-8012-9F394EB8D231}|GraphQlBackend\\GraphQlBackend.csproj|c:\\coding-azure\\graphql_server_client\\graphqlbackend\\graphqlbackend\\models\\usercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -136,7 +136,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -156,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "AppException.cs",
               "DocumentMoniker": "C:\\coding-azure\\graphql_server_client\\GraphQlBackend\\GraphQlBackend\\Helpers\\AppException.cs",
               "RelativeDocumentMoniker": "GraphQlBackend\\Helpers\\AppException.cs",
@@ -164,18 +164,17 @@
               "RelativeToolTip": "GraphQlBackend\\Helpers\\AppException.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T21:57:07.964Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-08T21:57:07.964Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ErrorHandlerMidderware.cs",
               "DocumentMoniker": "C:\\coding-azure\\graphql_server_client\\GraphQlBackend\\GraphQlBackend\\Helpers\\ErrorHandlerMidderware.cs",
               "RelativeDocumentMoniker": "GraphQlBackend\\Helpers\\ErrorHandlerMidderware.cs",
               "ToolTip": "C:\\coding-azure\\graphql_server_client\\GraphQlBackend\\GraphQlBackend\\Helpers\\ErrorHandlerMidderware.cs",
               "RelativeToolTip": "GraphQlBackend\\Helpers\\ErrorHandlerMidderware.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAApwDgAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-08T21:55:21.2Z",
               "EditorCaption": ""
@@ -206,13 +205,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\coding-azure\\graphql_server_client\\GraphQlBackend\\GraphQlBackend\\Program.cs",
               "RelativeDocumentMoniker": "GraphQlBackend\\Program.cs",
               "ToolTip": "C:\\coding-azure\\graphql_server_client\\GraphQlBackend\\GraphQlBackend\\Program.cs",
               "RelativeToolTip": "GraphQlBackend\\Program.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAIAwwFsAAAAAAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAIAwwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-31T20:03:51.316Z",
               "EditorCaption": ""
@@ -255,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\coding-azure\\graphql_server_client\\GraphQlBackend\\GraphQlBackend\\appsettings.json",
               "RelativeDocumentMoniker": "GraphQlBackend\\appsettings.json",
@@ -268,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\coding-azure\\graphql_server_client\\GraphQlBackend\\GraphQlBackend\\Services\\AuthService\\AuthService.cs",
               "RelativeDocumentMoniker": "GraphQlBackend\\Services\\AuthService\\AuthService.cs",
@@ -276,8 +275,7 @@
               "RelativeToolTip": "GraphQlBackend\\Services\\AuthService\\AuthService.cs",
               "ViewState": "AQIAAC0AAAAAAAAAAAAAAC0AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-03T01:36:47.497Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-03T01:36:47.497Z"
             },
             {
               "$type": "Document",
@@ -289,8 +287,7 @@
               "RelativeToolTip": "GraphQlBackend\\Models\\UserCreateDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-03T01:51:48.966Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-03T01:51:48.966Z"
             },
             {
               "$type": "Document",
